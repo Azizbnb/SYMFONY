@@ -1,0 +1,8 @@
+{% {% extends "base.html.twig" %}}
+
+{% block body %}
+    <h1 class="mt-5 text-center">Modifier la catgeorie numero {{categorie.id}}</h1>
+    {{form_start(form)}}
+    {{form_row(form.name)}}
+    {% include "_form.html.twig" with {'formLabel' : "Mettre à jour"} %}
+    {% endblock %}

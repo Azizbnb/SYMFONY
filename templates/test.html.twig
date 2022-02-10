@@ -1,0 +1,25 @@
+{% extends "base.html.twig" %}
+{% block title %}Page de test{% endblock %}
+
+{% block body %}
+<div>
+    <h1>Hello je suis une page de test</h1>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing
+        elit. Eius minus neque excepturi hic commodi fugit
+        eos cum obcaecati, corrupti possimus quam odit quidem
+        dolorum, eveniet reiciendis nihil ipsam magni. Cum?
+    </p>
+    {% set titre = "Titre de partie" %} {# On declare #}
+    <h2>{{titre}}</h2>
+
+    <p><span>  Lorem ipsum dolor sit amet consectetur adipisicing
+        elit. Eius minus neque excepturi hic commodi fugit
+        eos cum obcaecati, corrupti possimus quam odit quidem
+        dolorum, eveniet reiciendis nihil ipsam magni. Cum?</span></p>
+        <h2>{{titre2}}</h2> {# on récupère la variable titre2 passée dans le #}
+</div>
+{% endblock %}
+{# Ceci est un commentaire #}
+{# {% %} => permet d'ajouter un fonctionnement ou un élément de twig  #}
+{# {{}} permet d'afficher une information #}

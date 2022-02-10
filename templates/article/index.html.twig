@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<h1 class="text-center my-5">Liste des articles</h1>
+<div class="mx-auto">
+{# 
+    Il existe des filtres en twig qui permettent de récupérer ou de traiter certaines données
+    Ici, on récupère le nombre d'éléments présents dans le tableau d'articles
+#}
+    <p>Il y a <span class="text-success">{{articlesList|length}}</span> article(s)</p>
+    <table class="table table-hover table-striped">
+    <thead>
+        <tr class="table-primary">
+            <th>Id</th>
+            <th>Titre</th>
+            <th>Aperçu</th>
+            <th>Date de création</th>
+            <th>Opérations</th>
+        </tr>
+    </thead>
+    <tbody>
+        {# for else correspond au mix de ifelse et de for #}
+        {% for article in articlesList %}
+            <tr>
+                <td>{{article.id}}</td>
+                <td>{{article.title}}</td>
+                <td>{{article.subContent}}</td>
+                {# 
+                    Une date n'est pas affichable directement. On obtient l'erreur disant qu'il est impossible de la convertir en string.
+                    Pour corriger ce problème, on utilise le filtre date afin de définir sous quel format de string on veut l'afficher
+                 #}
+                <td>{{article.createdAt|date("d M Y | H:i:s", "Europe/Paris")}}</td>
+                <td><a href={{ path('article_single', {id: article.id})}}><button class="btn btn-primary">Voir en détail</button></a></td>
+            </tr>
+        {% else %}
+            <tr class="table-danger">
+                <td colspan="5">Il n'y a pas d'articles pour le moment</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+</div>
+{% endblock %}

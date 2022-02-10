@@ -1,0 +1,18 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+{% if categorie %}
+<h1>{{categorie.name}}</h1>
+
+<div>
+    <p>Options:</p>
+    <div>
+        <a href={{path("categorie_update", {id: categorie.id})}}>
+            <button class="btn btn-primary">Modifier</button>
+        </a>
+    </div>
+</div>
+{% else %}
+<h1>Cette categorie n'existe pas</h1>
+{% endif %}
+{% endblock %}

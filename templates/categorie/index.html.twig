@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {# <pre>
+        {{ dump(categories) }}
+    </pre> #}
+    {# Permet d'afficher les informations comme un var_dump() #}
+    <h1 class="my-5 text-center">Liste des catégories du blog</h1>
+    {% if categories %}
+        <ul class='list-group col-3 mx-auto'>
+            {% for categorie in categories %}
+                <li class="list-group-item"><a href={{ path('categorie_single', {id: categorie.id}) }}>{{categorie.name}}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p class="text-danger">Il n'y a pas de catégories</p>
+    {% endif %}
+
+{% endblock %}

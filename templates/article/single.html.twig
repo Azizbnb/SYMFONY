@@ -1,0 +1,7 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <h1 class="text-center my-5">{{article.title}}</h1>
+    <p class="mb-3">{{article.content}}</p>
+    <small class="text-success">Article rédigé le {{article.createdAt|date("d M Y")}}</small>
+{% endblock %}

@@ -1,3 +1,6 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+accueil: #nom de la route
+  path: /hello #Chemin qu'on retrouve dans l'url pour charger la route accueil
+  controller: App\Controller\TestController::hello #Controller instancié et nom de la methode appelée lorsque que le path est "/"
